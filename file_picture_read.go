@@ -6,21 +6,21 @@ import (
 	bimg "gopkg.in/h2non/bimg.v1"
 )
 
-type FilePictureReader struct {
+type FilePictureRead struct {
 	path string
 }
 
-func NewFilePictureReader(path string) *FilePictureReader {
-	return &FilePictureReader{
+func NewFilePictureRead(path string) *FilePictureRead {
+	return &FilePictureRead{
 		path: path,
 	}
 }
 
-func (reader *FilePictureReader) SetPath(path string) {
+func (reader *FilePictureRead) SetPath(path string) {
 	reader.path = path
 }
 
-func (reader *FilePictureReader) Read() ([]byte, *PictureInfo, error) {
+func (reader *FilePictureRead) Read() ([]byte, *PictureInfo, error) {
 	buffer, err := ioutil.ReadFile(reader.path)
 	if err != nil {
 		return nil, nil, err

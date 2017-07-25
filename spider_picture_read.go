@@ -7,17 +7,17 @@ import (
 	bimg "gopkg.in/h2non/bimg.v1"
 )
 
-type SpiderPictureReader struct {
+type SpiderPictureRead struct {
 	url string
 }
 
-func NewSpiderPictureReader(url string) *SpiderPictureReader {
-	return &SpiderPictureReader{
+func NewSpiderPictureRead(url string) *SpiderPictureRead {
+	return &SpiderPictureRead{
 		url: url,
 	}
 }
 
-func (reader *SpiderPictureReader) Read() ([]byte, *PictureInfo, error) {
+func (reader *SpiderPictureRead) Read() ([]byte, *PictureInfo, error) {
 	resp, err := http.Get(reader.url)
 	if err != nil {
 		return nil, nil, err

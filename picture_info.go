@@ -61,3 +61,15 @@ type PictureInfo struct {
 	Size   int64       // 图片大小
 	Sha1   string      //
 }
+
+func (info *PictureInfo) Clone() *PictureInfo {
+	return &PictureInfo{
+		Path:   info.Path,
+		Name:   info.Name,
+		Ext:    info.Ext,
+		Width:  info.Width,
+		Height: info.Height,
+		Size:   info.Size,
+		Sha1:   info.Sha1,
+	}
+}
