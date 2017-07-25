@@ -53,9 +53,11 @@ func (pt PictureType) String() string {
 }
 
 type PictureInfo struct {
-	Path string      // 全路径
-	Name string      // 图片名
-	Ext  PictureType // 图片类型
-	Size int64       //
-	Sha1 string      //
+	Path   string      // 全路径
+	Name   string      // 图片名
+	Ext    PictureType // 图片类型
+	Width  int         // 图片宽度
+	Height int         // 图片高度
+	Size   int64       // 图片大小
+	Sha1   string      //
 }
