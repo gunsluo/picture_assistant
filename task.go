@@ -38,6 +38,8 @@ func (task *Task) Exec() (pis []*PictureInfo, err error) {
 				errs.add(err)
 				continue
 			}
+		} else {
+			buf = buffer
 		}
 
 		if pipe.writer != nil {

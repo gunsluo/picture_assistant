@@ -99,3 +99,23 @@ func ModifyExt(path, ext string) string {
 
 	return fmt.Sprintf("%s.%s", path[0:i], ext)
 }
+
+func CleanExt(path string) string {
+
+	i := strings.LastIndexByte(path, '.')
+	if i < 0 {
+		return path
+	}
+
+	return path[0:i]
+}
+
+func CleanName(path string) string {
+
+	i := strings.LastIndexByte(path, '-')
+	if i < 0 {
+		return path
+	}
+
+	return path[0:i]
+}
