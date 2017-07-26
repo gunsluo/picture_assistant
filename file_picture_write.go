@@ -36,3 +36,7 @@ func (write *FilePictureWrite) Write(buffer []byte, info *PictureInfo) error {
 func defaultNameGenerator(dir string, info *PictureInfo) string {
 	return fmt.Sprintf("%s%s-%dx%d.%s", dir, CleanExt(info.Name), info.Width, info.Height, info.Ext)
 }
+
+func BulrNameGenerator(dir string, info *PictureInfo) string {
+	return fmt.Sprintf("%s%s-%dx%d-bulr.%s", dir, CleanExt(info.Name), info.Width, info.Height, info.Ext)
+}

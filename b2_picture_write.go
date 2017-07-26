@@ -70,11 +70,7 @@ func (write *B2PictureWrite) Write(buffer []byte, info *PictureInfo) error {
 		return err
 	}
 
-	name, err := AutoName()
-	if err != nil {
-		return err
-	}
-
+	name := write.nameGenerator("", info)
 	reader := bytes.NewReader(buffer)
 	file, err := write.bucket.UploadFile(name, nil, reader)
 	if err != nil {

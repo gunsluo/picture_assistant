@@ -14,11 +14,16 @@ func demo() {
 
 	url := "https://www.jerrylou.me/images/avatar.jpg"
 	read := assistant.NewSpiderPictureRead(url)
-	write := assistant.NewFilePictureWrite("./")
+
+	accountID := ""
+	applicationKey := ""
+	bucketName := ""
+	write := assistant.NewB2PictureWrite(accountID, applicationKey, bucketName)
+	write.SetNameGenerator(assistant.BulrNameGenerator)
+	write2 := assistant.NewB2PictureWrite(accountID, applicationKey, bucketName)
 	convert := assistant.NewResizeConvert().SetRatio(true).SetWidth(500)
 
-	task := assistant.NewTask(read).Pipe(convert, write)
-	//task := assistant.NewTask(read).Pipe(assistant.NullPictureConvert, write)
+	task := assistant.NewTask(read).Pipe(convert, write).Pipe(assistant.NullPictureConvert, write2)
 	infos, err := task.Exec()
 	if err != nil {
 		panic(err)
